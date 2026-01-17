@@ -46,7 +46,7 @@ describe('Responsive Layout', () => {
     expect(headline).toBeInTheDocument();
 
     // CTA button should have mobile stacking classes
-    const primaryCTA = screen.getByRole('link', { name: /agenda una llamada/i });
+    const primaryCTA = screen.getByRole('link', { name: /agenda tu llamada/i });
     expect(primaryCTA).toBeInTheDocument();
 
     // Button should have full width on mobile
@@ -93,7 +93,7 @@ describe('Responsive Layout', () => {
     expect(desktopNavContainer).toBeInTheDocument();
 
     // CTA buttons should have responsive width classes
-    const primaryCTA = screen.getByRole('link', { name: /agenda una llamada/i });
+    const primaryCTA = screen.getByRole('link', { name: /agenda tu llamada/i });
     expect(primaryCTA).toHaveClass('sm:w-auto');
   });
 
@@ -111,7 +111,7 @@ describe('Responsive Layout', () => {
     const heroSection = screen.getByRole('main');
 
     // Body text should use responsive typography classes
-    const bodyText = within(heroSection).getByText(/transforma ideas ambiciosas/i);
+    const bodyText = within(heroSection).getByText(/modernizar y automatizar/i);
     expect(bodyText).toHaveClass('text-sm');
     expect(bodyText).toHaveClass('sm:text-base');
   });

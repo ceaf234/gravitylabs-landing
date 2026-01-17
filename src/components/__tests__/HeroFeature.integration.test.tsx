@@ -38,10 +38,10 @@ describe('Hero Feature Integration', () => {
 
     // Main headline in hero with typewriter text
     const headline = screen.getByRole('heading', { level: 1 });
-    expect(headline).toHaveTextContent(/dise[ñn]amos.*construimos.*escalamos/i);
+    expect(headline).toHaveTextContent(/hacemos.*crecer.*negocio.*tecnolog/i);
 
     // CTA button in hero
-    expect(screen.getByRole('link', { name: /agenda una llamada/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /agenda tu llamada/i })).toBeInTheDocument();
   });
 
   /**
@@ -111,7 +111,7 @@ describe('Hero Feature Integration', () => {
 
     const heroSection = screen.getByRole('main');
     const subheadline = within(heroSection).getByText(
-      /consultoria tecnologica estrategica que transforma ideas ambiciosas/i
+      /dise[ñn]amos.*desarrollamos.*software.*inteligencia.*artificial.*modernizar/i
     );
 
     expect(subheadline).toBeInTheDocument();

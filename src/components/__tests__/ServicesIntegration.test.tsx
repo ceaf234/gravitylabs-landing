@@ -25,7 +25,7 @@ describe('Services Section Integration', () => {
     const heroSection = screen.getByRole('main');
     expect(heroSection).toBeInTheDocument();
     const heroHeadline = within(heroSection).getByRole('heading', { level: 1 });
-    expect(heroHeadline).toHaveTextContent(/dise[ñn]amos.*construimos.*escalamos/i);
+    expect(heroHeadline).toHaveTextContent(/hacemos.*crecer.*negocio.*tecnolog/i);
 
     // Verify ServicesSection is present (region with h2)
     const servicesSection = screen.getByRole('region', { name: /productos digitales/i });
@@ -78,7 +78,7 @@ describe('Services Section Integration', () => {
     expect(h2Headings.length).toBeGreaterThanOrEqual(1);
 
     // h1 should contain hero headline text
-    expect(h1Headings[0]).toHaveTextContent(/dise[ñn]amos.*construimos.*escalamos/i);
+    expect(h1Headings[0]).toHaveTextContent(/hacemos.*crecer.*negocio.*tecnolog/i);
 
     // First h2 should be the services section heading
     const servicesHeading = screen.getByRole('heading', {

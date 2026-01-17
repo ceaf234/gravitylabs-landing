@@ -132,8 +132,8 @@
 /* Dot grid background pattern with animated wave shimmer */
 .dot-wave {
   position: relative;
-  /* Base dot pattern layer - subtle static dots */
-  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  /* Base dot pattern layer - subtle static dots (increased from 0.06 to 0.10) */
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.10) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
@@ -142,22 +142,24 @@
   content: '';
   position: absolute;
   inset: 0;
-  /* Brighter dot pattern for the wave */
-  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.22) 1px, transparent 1px);
+  /* Brighter dot pattern for the wave (increased from 0.22 to 0.38 for more visibility) */
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.38) 1px, transparent 1px);
   background-size: 24px 24px;
-  /* Diagonal gradient mask that creates the wave band effect */
+  /* Diagonal gradient mask that creates the wave band effect (wider band for more visibility) */
   mask-image: linear-gradient(
     -45deg,
     transparent 0%,
-    transparent 40%,
-    rgba(0, 0, 0, 0.8) 50%,
-    transparent 60%,
+    transparent 35%,
+    rgba(0, 0, 0, 1) 50%,
+    transparent 65%,
     transparent 100%
   );
   mask-size: 400% 400%;
   mask-position: 100% 100%;
   /* Slow, smooth animation for subtle premium feel */
-  animation: dot-wave-shimmer 12s ease-in-out infinite;
+  animation: dot-wave-shimmer 10s ease-in-out infinite;
+  /* Add slight brightness boost for more pronounced wave effect */
+  filter: brightness(1.15);
   pointer-events: none;
   z-index: 0;
 }
