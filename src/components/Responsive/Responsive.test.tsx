@@ -45,8 +45,8 @@ describe('Responsive Layout', () => {
     const headline = screen.getByRole('heading', { level: 1 });
     expect(headline).toBeInTheDocument();
 
-    // CTA button should have mobile stacking classes
-    const primaryCTA = screen.getByRole('link', { name: /agenda tu llamada/i });
+    // CTA button should have mobile stacking classes (renders as button when onOpenModal is provided)
+    const primaryCTA = screen.getByRole('button', { name: /agenda tu llamada/i });
     expect(primaryCTA).toBeInTheDocument();
 
     // Button should have full width on mobile
@@ -92,8 +92,8 @@ describe('Responsive Layout', () => {
     const desktopNavContainer = header.querySelector('.md\\:flex');
     expect(desktopNavContainer).toBeInTheDocument();
 
-    // CTA buttons should have responsive width classes
-    const primaryCTA = screen.getByRole('link', { name: /agenda tu llamada/i });
+    // CTA buttons should have responsive width classes (renders as button when onOpenModal is provided)
+    const primaryCTA = screen.getByRole('button', { name: /agenda tu llamada/i });
     expect(primaryCTA).toHaveClass('sm:w-auto');
   });
 

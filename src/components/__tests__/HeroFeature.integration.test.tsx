@@ -40,8 +40,8 @@ describe('Hero Feature Integration', () => {
     const headline = screen.getByRole('heading', { level: 1 });
     expect(headline).toHaveTextContent(/hacemos.*crecer.*negocio.*tecnolog/i);
 
-    // CTA button in hero
-    expect(screen.getByRole('link', { name: /agenda tu llamada/i })).toBeInTheDocument();
+    // CTA button in hero (renders as button when onOpenModal is provided in App)
+    expect(screen.getByRole('button', { name: /agenda tu llamada/i })).toBeInTheDocument();
   });
 
   /**

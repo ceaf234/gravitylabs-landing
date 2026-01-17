@@ -3,7 +3,12 @@ import { Container } from '../layout';
 import ScrollIndicator from '../ScrollIndicator';
 import { TypewriterText } from '../TypewriterText';
 
-function HeroSection() {
+export interface HeroSectionProps {
+  /** Callback to open the contact modal */
+  onOpenModal?: () => void;
+}
+
+function HeroSection({ onOpenModal }: HeroSectionProps) {
   return (
     <main
       id="main-content"
@@ -42,9 +47,15 @@ function HeroSection() {
             aria-label="Acciones principales"
             className="flex flex-col gap-4 sm:flex-row sm:gap-5 2xl:gap-6"
           >
-            <Button variant="primary" href="#contacto" className="w-full sm:w-auto">
-              Agenda tu llamada
-            </Button>
+            {onOpenModal ? (
+              <Button variant="primary" onClick={onOpenModal} className="w-full sm:w-auto">
+                Agenda tu llamada
+              </Button>
+            ) : (
+              <Button variant="primary" href="#contacto" className="w-full sm:w-auto">
+                Agenda tu llamada
+              </Button>
+            )}
             <Button variant="secondary" href="#servicios" className="w-full sm:w-auto">
               Nuestros servicios
             </Button>

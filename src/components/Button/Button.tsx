@@ -16,6 +16,10 @@ export interface ButtonProps {
   className?: string;
   /** Accessible label for screen readers (if different from visible text) */
   ariaLabel?: string;
+  /** Button type attribute (default: 'button') */
+  type?: 'button' | 'submit' | 'reset';
+  /** Whether the button is disabled */
+  disabled?: boolean;
 }
 
 /** Base styles shared across all button variants - Meets 44x44px minimum touch target, scales on large screens */
@@ -30,6 +34,9 @@ const variantStyles = {
     'bg-transparent border border-border text-text-primary hover:border-accent-gold hover:text-accent-gold focus-visible:border-accent-gold',
 };
 
+/** Disabled styles */
+const disabledStyles = 'opacity-50 cursor-not-allowed';
+
 function Button({
   variant = 'primary',
   children,
@@ -38,13 +45,20 @@ function Button({
   href,
   className = '',
   ariaLabel,
+  type = 'button',
+  disabled = false,
 }: ButtonProps) {
-  const combinedStyles = `${baseStyles} ${variantStyles[variant]} ${className}`.trim();
+  const combinedStyles = `${baseStyles} ${variantStyles[variant]} ${disabled ? disabledStyles : ''} ${className}`.trim();
 
   const content = (
     <>
       {children}
-      {Icon && <Icon className="h-5 w-5 2xl:h-6 2xl:w-6 3xl:h-7 3xl:w-7 4xl:h-8 4xl:w-8" aria-hidden="true" />}
+      {Icon && (
+        <Icon
+          className="h-5 w-5 2xl:h-6 2xl:w-6 3xl:h-7 3xl:w-7 4xl:h-8 4xl:w-8"
+          aria-hidden="true"
+        />
+      )}
     </>
   );
 
@@ -57,7 +71,13 @@ function Button({
   }
 
   return (
-    <button type="button" onClick={onClick} className={combinedStyles} aria-label={ariaLabel}>
+    <button
+      type={type}
+      onClick={onClick}
+      className={combinedStyles}
+      aria-label={ariaLabel}
+      disabled={disabled}
+    >
       {content}
     </button>
   );
