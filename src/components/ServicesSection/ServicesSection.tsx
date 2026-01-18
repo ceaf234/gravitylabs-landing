@@ -1,4 +1,4 @@
-import { Code2, Palette, Brain, Workflow } from 'lucide-react';
+import { Code2, Palette, Brain, Workflow, TrendingUp } from 'lucide-react';
 import { DottedWaveBackground } from '../backgrounds';
 import { ServiceCard } from '../ServiceCard';
 
@@ -15,7 +15,7 @@ interface ServiceData {
 }
 
 /**
- * Array of 4 service offerings with Spanish copy
+ * Array of 5 service offerings with Spanish copy
  * Each follows the problem/benefit description pattern
  */
 const services: ServiceData[] = [
@@ -43,10 +43,16 @@ const services: ServiceData[] = [
       'Eliminamos el trabajo manual con automatizacion inteligente, combinando las mejores practicas para mantener tus sistemas funcionando de manera eficiente y sin interrupciones.',
     icon: Workflow,
   },
+  {
+    title: 'Servicios de IPO',
+    description:
+      'Te acompanamos en tu proceso de salida a bolsa con tecnologia, automatizacion y datos confiables para cumplimiento, auditorias e integracion de sistemas.',
+    icon: TrendingUp,
+  },
 ];
 
 /**
- * ServicesSection displays the company's 4 core service offerings
+ * ServicesSection displays the company's 5 core service offerings
  * in a responsive card-based layout.
  *
  * Features:
