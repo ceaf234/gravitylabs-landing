@@ -17,6 +17,7 @@ const navLinks: NavLink[] = [
 
 function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isCompact, setIsCompact] = useState(false);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const firstMenuLinkRef = useRef<HTMLAnchorElement>(null);
@@ -69,6 +70,32 @@ function Header() {
     };
   }, [isMobileMenuOpen]);
 
+  // Scroll-based shrink behavior using simple threshold
+  // Compact mode activates when user scrolls past 60px (stable, predictable)
+  useEffect(() => {
+    const SCROLL_THRESHOLD = 60;
+    let ticking = false;
+
+    const updateCompactState = () => {
+      setIsCompact(window.scrollY > SCROLL_THRESHOLD);
+      ticking = false;
+    };
+
+    const handleScroll = () => {
+      // Use requestAnimationFrame to avoid layout thrashing
+      if (!ticking) {
+        requestAnimationFrame(updateCompactState);
+        ticking = true;
+      }
+    };
+
+    // Set initial state based on current scroll position
+    setIsCompact(window.scrollY > SCROLL_THRESHOLD);
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   // Trap focus within mobile menu
   const handleMenuKeyDown = (event: React.KeyboardEvent) => {
     if (event.key === 'Tab') {
@@ -92,48 +119,75 @@ function Header() {
   return (
     <>
       {/* Skip to content link for accessibility */}
-      <a href="#main-content" className="skip-link">
+      <a href="#hero" className="skip-link">
         Saltar al contenido principal
       </a>
 
       <header
         role="banner"
-        className="dot-wave fixed left-0 right-0 top-0 z-50 bg-background"
+        className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ease-out ${
+          isCompact
+            ? 'bg-black/55 backdrop-blur-md border-b border-white/10'
+            : 'dot-wave bg-background'
+        }`}
         style={
-          {
-            '--dot-wave-opacity': 0.663,
-            '--dot-wave-brightness': 2.535,
-          } as CSSProperties
+          !isCompact
+            ? ({
+                '--dot-wave-opacity': 0.663,
+                '--dot-wave-brightness': 2.535,
+              } as CSSProperties)
+            : undefined
         }
       >
         <Container
           as="nav"
-          className="flex items-center justify-between py-4 2xl:py-6 3xl:py-8"
+          className={`flex items-center justify-between transition-all duration-300 ease-out ${
+            isCompact
+              ? 'py-2 2xl:py-3 3xl:py-4'
+              : 'py-4 2xl:py-6 3xl:py-8'
+          }`}
           aria-label="Navegacion principal"
         >
           {/* Logo - Scales with viewport, larger on big screens */}
           <a
             href="/"
-            className="text-lg font-bold text-text-primary transition-opacity hover:opacity-80 focus-visible:rounded-sm 2xl:text-xl 4xl:text-2xl"
+            className={`font-bold text-text-primary transition-all duration-300 ease-out hover:opacity-80 focus-visible:rounded-sm ${
+              isCompact
+                ? 'text-base 2xl:text-lg 4xl:text-xl'
+                : 'text-lg 2xl:text-xl 4xl:text-2xl'
+            }`}
             aria-label="GravityLabs - Ir a inicio"
           >
             GravityLabs
           </a>
 
           {/* Desktop Navigation - Hidden visually on mobile */}
-          <div className="hidden items-center gap-8 md:flex 2xl:gap-10 3xl:gap-12" aria-label="Menu principal">
+          <div
+            className={`hidden items-center md:flex transition-all duration-300 ease-out ${
+              isCompact
+                ? 'gap-6 2xl:gap-8 3xl:gap-10'
+                : 'gap-8 2xl:gap-10 3xl:gap-12'
+            }`}
+            aria-label="Menu principal"
+          >
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-nav font-medium text-text-muted transition-colors hover:text-text-primary focus-visible:text-text-primary focus-visible:rounded-sm"
+                className={`font-medium text-text-muted transition-all duration-300 ease-out hover:text-text-primary focus-visible:text-text-primary focus-visible:rounded-sm ${
+                  isCompact ? 'text-xs 2xl:text-sm' : 'text-nav'
+                }`}
               >
                 {link.label}
               </a>
             ))}
             <a
               href="#contacto"
-              className="rounded-full bg-accent-gold px-5 py-2 text-nav font-medium text-[#1a1a1a] transition-colors hover:bg-accent-gold-hover focus-visible:ring-2 focus-visible:ring-accent-gold/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background 2xl:px-7 2xl:py-3 3xl:px-8 3xl:py-4"
+              className={`rounded-full bg-accent-gold font-medium text-[#1a1a1a] transition-all duration-300 ease-out hover:bg-accent-gold-hover focus-visible:ring-2 focus-visible:ring-accent-gold/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
+                isCompact
+                  ? 'px-4 py-1.5 text-xs 2xl:px-5 2xl:py-2 2xl:text-sm 3xl:px-6 3xl:py-2.5'
+                  : 'px-5 py-2 text-nav 2xl:px-7 2xl:py-3 3xl:px-8 3xl:py-4'
+              }`}
             >
               Hablemos
             </a>
@@ -143,14 +197,21 @@ function Header() {
           <button
             ref={menuButtonRef}
             type="button"
-            className="flex h-11 w-11 items-center justify-center rounded-lg text-text-primary transition-colors hover:bg-white/10 md:hidden"
+            className={`flex items-center justify-center rounded-lg text-text-primary transition-all duration-300 ease-out hover:bg-white/10 md:hidden ${
+              isCompact ? 'h-9 w-9' : 'h-11 w-11'
+            }`}
             onClick={openMenu}
             aria-label="Abrir menu de navegacion"
             aria-expanded={isMobileMenuOpen}
             aria-controls="mobile-menu"
             aria-haspopup="dialog"
           >
-            <Menu className="h-6 w-6" aria-hidden="true" />
+            <Menu
+              className={`transition-all duration-300 ease-out ${
+                isCompact ? 'h-5 w-5' : 'h-6 w-6'
+              }`}
+              aria-hidden="true"
+            />
           </button>
         </Container>
 

@@ -13,7 +13,8 @@ function HeroSection({ onOpenModal }: HeroSectionProps) {
   return (
     <DottedWaveBackground
       as="main"
-      id="main-content"
+      id="hero"
+      data-section="hero"
       role="main"
       aria-labelledby="hero-headline"
       className="flex min-h-[85vh] flex-col items-start justify-center overflow-hidden bg-background pt-16 pb-6 lg:min-h-[75vh] lg:pt-20 lg:pb-10"
