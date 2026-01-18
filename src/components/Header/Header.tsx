@@ -133,7 +133,7 @@ function Header() {
             ))}
             <a
               href="#contacto"
-              className="rounded-full border border-border px-5 py-2 text-nav font-medium text-text-primary transition-colors hover:border-accent-gold hover:text-accent-gold focus-visible:border-accent-gold 2xl:px-7 2xl:py-3 3xl:px-8 3xl:py-4"
+              className="rounded-full bg-accent-gold px-5 py-2 text-nav font-medium text-[#1a1a1a] transition-colors hover:bg-accent-gold-hover focus-visible:ring-2 focus-visible:ring-accent-gold/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background 2xl:px-7 2xl:py-3 3xl:px-8 3xl:py-4"
             >
               Hablemos
             </a>
@@ -208,7 +208,7 @@ function Header() {
                   ))}
                   <a
                     href="#contacto"
-                    className="mt-4 rounded-full border border-border px-5 py-3 text-center text-lg font-medium text-text-primary transition-colors hover:border-accent-gold hover:text-accent-gold focus-visible:border-accent-gold"
+                    className="mt-4 rounded-full bg-accent-gold px-5 py-3 text-center text-lg font-medium text-[#1a1a1a] transition-colors hover:bg-accent-gold-hover focus-visible:ring-2 focus-visible:ring-accent-gold/50"
                     onClick={closeMenu}
                   >
                     Hablemos

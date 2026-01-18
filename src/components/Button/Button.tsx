@@ -29,9 +29,9 @@ const baseStyles =
 /** Variant-specific styles with sufficient color contrast */
 const variantStyles = {
   primary:
-    'bg-[#f5f5f0] text-[#1a1a1a] hover:bg-white focus-visible:ring-2 focus-visible:ring-accent-gold/50',
+    'bg-accent-gold text-[#1a1a1a] hover:bg-accent-gold-hover focus-visible:ring-2 focus-visible:ring-accent-gold/50',
   secondary:
-    'bg-transparent border border-border text-text-primary hover:border-accent-gold hover:text-accent-gold focus-visible:border-accent-gold',
+    'bg-white text-[#1a1a1a] border border-white/20 hover:bg-gray-100 focus-visible:ring-2 focus-visible:ring-white/50',
 };
 
 /** Disabled styles */
