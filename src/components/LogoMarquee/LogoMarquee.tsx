@@ -22,7 +22,7 @@ const placeholderLogos = [
 function LogoItem({ name, text }: { name: string; text: string }) {
   return (
     <div
-      className="flex h-[56px] items-center justify-center rounded-full border border-white/10 bg-white/5 px-8 opacity-60 transition-all duration-300 hover:opacity-100 hover:scale-105 md:h-[68px] md:px-10 lg:h-[80px] lg:px-12 2xl:h-[90px] 2xl:px-14"
+      className="flex h-[73px] items-center justify-center rounded-full border border-white/10 bg-white/5 px-8 opacity-60 transition-all duration-300 hover:opacity-100 hover:scale-105 md:h-[88px] md:px-10 lg:h-[104px] lg:px-12 2xl:h-[117px] 2xl:px-14"
       aria-label={name}
     >
       <span className="text-base font-medium tracking-wide text-white/90 md:text-lg lg:text-xl 2xl:text-2xl">

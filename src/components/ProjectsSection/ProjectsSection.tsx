@@ -44,8 +44,8 @@ function ProjectsSection() {
           </h2>
         </div>
 
-        {/* Logo Carousel Container - Glass panel */}
-        <div className="rounded-2xl border border-white/10 bg-white/5 py-10 px-6 shadow-[0_0_0_1px_rgba(255,255,255,0.06)] md:py-12 md:px-8 lg:py-14 lg:px-10 2xl:py-16 2xl:px-12 2xl:rounded-3xl">
+        {/* Logo Carousel Container - Glass panel (30% taller) */}
+        <div className="rounded-2xl border border-white/10 bg-white/5 py-14 px-6 shadow-[0_0_0_1px_rgba(255,255,255,0.06)] md:py-16 md:px-8 lg:py-[72px] lg:px-10 2xl:py-20 2xl:px-12 2xl:rounded-3xl">
           <LogoMarquee />
         </div>
       </div>

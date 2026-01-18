@@ -31,9 +31,9 @@ function HeroSection({ onOpenModal }: HeroSectionProps) {
           >
             <TypewriterText
               text="Hacemos crecer tu negocio con tecnología."
-              speed={40}
-              pauseAfterPunctuation={300}
-              startDelay={300}
+              speed={52}
+              pauseAfterPunctuation={390}
+              startDelay={390}
               keepCaretAfterComplete={true}
             />
           </h1>
