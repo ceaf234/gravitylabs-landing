@@ -160,8 +160,8 @@ function Header() {
               alt="GravityLabs"
               className={`transition-all duration-300 ease-out ${
                 isCompact
-                  ? 'h-8 2xl:h-9 4xl:h-10'
-                  : 'h-10 2xl:h-12 4xl:h-14'
+                  ? 'h-6 2xl:h-7 4xl:h-8'
+                  : 'h-8 2xl:h-10 4xl:h-11'
               }`}
             />
           </a>
@@ -245,7 +245,7 @@ function Header() {
                   <img
                     src={GravityLabsLogo}
                     alt="GravityLabs"
-                    className="h-8"
+                    className="h-6"
                     aria-hidden="true"
                   />
                   <button
