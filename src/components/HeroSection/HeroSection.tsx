@@ -31,7 +31,7 @@ function HeroSection({ onOpenModal }: HeroSectionProps) {
             style={{ fontSize: 'clamp(2.2rem, 5.5vw, 10.5rem)' }}
           >
             <TypewriterText
-              text="Hacemos crecer tu negocio con tecnología."
+              text="Software profesional para empresas que quieren crecer al siguiente nivel."
               speed={52}
               pauseAfterPunctuation={390}
               startDelay={390}
@@ -41,8 +41,8 @@ function HeroSection({ onOpenModal }: HeroSectionProps) {
 
           {/* Subheadline Paragraph - Muted text with max-width for readability */}
           <p className="mb-8 max-w-[60ch] text-sm leading-[1.6] text-text-muted sm:text-base md:mb-10 2xl:text-lg 2xl:mb-12 3xl:mb-14 4xl:text-xl">
-            Diseñamos y desarrollamos software e inteligencia artificial para modernizar y
-            automatizar tu operación.
+            Creamos sistemas a medida que automatizan tu operación — desde ventas en línea hasta
+            procesos internos con IA.
           </p>
 
           {/* CTA Buttons - Primary and secondary actions with responsive scaling */}
@@ -53,15 +53,15 @@ function HeroSection({ onOpenModal }: HeroSectionProps) {
           >
             {onOpenModal ? (
               <Button variant="primary" onClick={onOpenModal} className="w-full sm:w-auto">
-                Agenda tu llamada
+                Agenda una consulta gratis
               </Button>
             ) : (
               <Button variant="primary" href="#contacto" className="w-full sm:w-auto">
-                Agenda tu llamada
+                Agenda una consulta gratis
               </Button>
             )}
             <Button variant="secondary" href="#servicios" className="w-full sm:w-auto">
-              Nuestros servicios
+              Cómo te ayudamos
             </Button>
           </div>
         </article>

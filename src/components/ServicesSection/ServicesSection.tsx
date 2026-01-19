@@ -1,4 +1,4 @@
-import { Code2, Palette, Brain, Workflow, Cpu, ShoppingCart } from 'lucide-react';
+import { Globe, Workflow, ShoppingCart, Brain, Cpu, Database } from 'lucide-react';
 import { DottedWaveBackground } from '../backgrounds';
 import { ServiceCard } from '../ServiceCard';
 
@@ -11,7 +11,7 @@ interface ServiceData {
   /** Service description following problem/benefit pattern */
   description: string;
   /** Lucide icon component for the service */
-  icon: typeof Code2;
+  icon: typeof Globe;
 }
 
 /**
@@ -20,40 +20,40 @@ interface ServiceData {
  */
 const services: ServiceData[] = [
   {
-    title: 'Desarrollo de Software',
+    title: 'Sitios web que venden',
     description:
-      'Construimos software escalable y de alto rendimiento adaptado a las necesidades de tu negocio, entregado por equipos de ingenieria que se mueven rapido y se adaptan a tus objetivos.',
-    icon: Code2,
+      'Diseñamos tu presencia digital para que transmita profesionalismo y convierta visitantes en clientes.',
+    icon: Globe,
   },
   {
-    title: 'Diseno de Experiencia de Usuario',
+    title: 'Automatización de procesos',
     description:
-      'Creamos interfaces intuitivas centradas en el usuario que combinan innovacion con practicidad, generando soluciones que tus clientes amaran usar.',
-    icon: Palette,
-  },
-  {
-    title: 'Integracion de IA',
-    description:
-      'Aprovechamos la inteligencia artificial para desbloquear el valor de tus datos, integrando soluciones inteligentes y modelos de aprendizaje que impulsan decisiones mas acertadas.',
-    icon: Brain,
-  },
-  {
-    title: 'Automatizacion de Procesos',
-    description:
-      'Eliminamos el trabajo manual con automatizacion inteligente, combinando las mejores practicas para mantener tus sistemas funcionando de manera eficiente y sin interrupciones.',
+      'Eliminamos el trabajo repetitivo. Lo que hoy haces en horas, tu sistema lo hará en minutos.',
     icon: Workflow,
   },
   {
-    title: 'Internet de las Cosas (IoT)',
+    title: 'Tiendas en línea',
     description:
-      'Conectamos dispositivos inteligentes para capturar datos en tiempo real y optimizar tus operaciones con sensores, dashboards y automatizacion.',
+      'Vende 24/7 con una tienda rápida, segura y lista para recibir pagos desde el día uno.',
+    icon: ShoppingCart,
+  },
+  {
+    title: 'Inteligencia artificial aplicada',
+    description:
+      'Chatbots, análisis de datos, asistentes internos — ponemos la IA a trabajar en tu operación real.',
+    icon: Brain,
+  },
+  {
+    title: 'Internet de las cosas (IoT)',
+    description:
+      'Conecta sensores y dispositivos para monitorear tu operación en tiempo real — desde inventario hasta maquinaria.',
     icon: Cpu,
   },
   {
-    title: 'E-commerce y Tiendas en Linea',
+    title: 'Sistemas de gestión (CRM/ERP)',
     description:
-      'Creamos tu tienda en linea para que vendas 24/7 con una experiencia de compra rapida, segura y optimizada para conversiones.',
-    icon: ShoppingCart,
+      'Centraliza clientes, ventas, inventario y finanzas en un solo lugar. Menos Excel, más control.',
+    icon: Database,
   },
 ];
 
@@ -87,7 +87,7 @@ function ServicesSection() {
         <div className="mb-12 md:mb-16 2xl:mb-20 3xl:mb-24 4xl:mb-28">
           {/* Eyebrow Text */}
           <p className="mb-4 text-eyebrow font-medium uppercase tracking-[0.2em] text-text-eyebrow 2xl:mb-6 3xl:mb-8">
-            En Antigravity
+            En GravityLabs
           </p>
 
           {/* Section Headline - Progressive max-width for readability */}
@@ -95,8 +95,8 @@ function ServicesSection() {
             id="services-heading"
             className="max-w-3xl text-display-md font-bold leading-[1.1] text-text-primary 2xl:max-w-4xl 3xl:max-w-5xl 4xl:max-w-6xl"
           >
-            disenamos, construimos y escalamos productos digitales. Desde el concepto hasta el
-            lanzamiento, y mas alla.
+            Somos la agencia de software que crea soluciones a tu medida que trabajan por ti —
+            mientras tú te enfocas en crecer.
           </h2>
         </div>
 
