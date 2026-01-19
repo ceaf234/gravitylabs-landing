@@ -31,7 +31,7 @@ function HeroSection({ onOpenModal }: HeroSectionProps) {
             style={{ fontSize: 'clamp(2.2rem, 5.5vw, 10.5rem)' }}
           >
             <TypewriterText
-              text="Software profesional para empresas que quieren crecer al siguiente nivel."
+              text="Software profesional para llevar tu empresa al siguiente nivel."
               speed={52}
               pauseAfterPunctuation={390}
               startDelay={390}
