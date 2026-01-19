@@ -2,6 +2,7 @@ import type { CSSProperties } from 'react';
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Container } from '../layout';
+import GravityLabsLogo from './GravityLabsLogo_SVG.svg';
 
 interface NavLink {
   label: string;
@@ -151,14 +152,18 @@ function Header() {
           {/* Logo - Scales with viewport, larger on big screens */}
           <a
             href="/"
-            className={`font-bold text-text-primary transition-all duration-300 ease-out hover:opacity-80 focus-visible:rounded-sm ${
-              isCompact
-                ? 'text-base 2xl:text-lg 4xl:text-xl'
-                : 'text-lg 2xl:text-xl 4xl:text-2xl'
-            }`}
+            className="transition-all duration-300 ease-out hover:opacity-80 focus-visible:rounded-sm"
             aria-label="GravityLabs - Ir a inicio"
           >
-            GravityLabs
+            <img
+              src={GravityLabsLogo}
+              alt="GravityLabs"
+              className={`transition-all duration-300 ease-out ${
+                isCompact
+                  ? 'h-8 2xl:h-9 4xl:h-10'
+                  : 'h-10 2xl:h-12 4xl:h-14'
+              }`}
+            />
           </a>
 
           {/* Desktop Navigation - Hidden visually on mobile */}
@@ -237,9 +242,12 @@ function Header() {
               <div className="flex h-full flex-col">
                 {/* Menu Header */}
                 <div className="flex items-center justify-between px-4 py-4">
-                  <span className="text-xl font-bold text-text-primary" aria-hidden="true">
-                    GravityLabs
-                  </span>
+                  <img
+                    src={GravityLabsLogo}
+                    alt="GravityLabs"
+                    className="h-8"
+                    aria-hidden="true"
+                  />
                   <button
                     ref={closeButtonRef}
                     type="button"
