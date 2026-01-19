@@ -18,27 +18,27 @@ interface TeamMember {
 const teamMembers: TeamMember[] = [
   {
     name: 'Carlos Alvarado',
-    role: 'Gerente de Producto',
+    role: 'Director de Producto',
   },
   {
-    name: 'María López',
-    role: 'Arquitecto de Soluciones',
+    name: 'María Fernández',
+    role: 'Directora de Ingeniería',
   },
   {
     name: 'Diego Herrera',
-    role: 'Infraestructura y DevOps',
+    role: 'Líder de Infraestructura',
   },
   {
-    name: 'Ana Pérez',
-    role: 'Diseñadora UI/UX',
+    name: 'Andrés Morales',
+    role: 'Desarrollador Senior',
   },
   {
-    name: 'Luis García',
-    role: 'Desarrollador Full-Stack',
+    name: 'Sofía Castillo',
+    role: 'Desarrolladora Senior',
   },
   {
-    name: 'Sofía Ramírez',
-    role: 'Especialista en Marketing',
+    name: 'Valentina Reyes',
+    role: 'Estratega de Marca',
   },
 ];
 
@@ -80,12 +80,13 @@ function TeamSection() {
             id="team-heading"
             className="mb-4 max-w-3xl text-display-md font-bold leading-[1.1] text-text-primary md:mb-6 2xl:max-w-4xl"
           >
-            Las personas detrás de Gravity Labs
+            Quienes van a trabajar en tu proyecto.
           </h2>
 
           {/* Optional Subtitle */}
           <p className="max-w-2xl text-card-body leading-relaxed text-text-muted">
-            Un equipo pequeño, enfocado en ejecutar y entregar resultados.
+            Somos quienes responden tus mensajes, construyen tu software y dan la cara por los
+            resultados.
           </p>
         </div>
 

@@ -45,13 +45,13 @@ function SloganSection() {
                 className="mb-4 text-display-md font-bold leading-[1.1] text-text-primary md:mb-6 2xl:mb-8"
                 style={{ textShadow: '0 2px 8px rgba(0, 0, 0, 0.3)' }}
               >
-                Creamos soluciones brillantes para que tu negocio crezca.
+                Un equipo pequeño que entrega como uno grande.
               </h2>
 
               {/* Subheadline */}
               <p className="mb-6 max-w-[50ch] text-card-body leading-relaxed text-text-muted md:mb-8 2xl:mb-10">
-                Diseñamos y construimos software, automatización e IA para modernizar tu operación
-                sin complicaciones.
+                No tienes que ser experto en software. Nosotros nos encargamos de lo técnico, tú te
+                enfocas en tu negocio.
               </p>
 
               {/* Micro CTA Link */}

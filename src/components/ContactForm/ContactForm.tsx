@@ -16,18 +16,22 @@ export interface ContactFormProps {
 
 /** Service options for the dropdown */
 const serviceOptions: CustomSelectOption[] = [
-  { value: 'Automatizacion de Procesos', label: 'Automatización de Procesos' },
-  { value: 'Integraciones con IA', label: 'Integraciones con IA' },
-  { value: 'Desarrollo de Software', label: 'Desarrollo de Software' },
-  { value: 'Aun por definir', label: 'Aún por definir' },
+  { value: 'Automatizacion de procesos', label: 'Automatización de procesos' },
+  { value: 'Inteligencia artificial', label: 'Inteligencia artificial' },
+  { value: 'Sitio web o landing page', label: 'Sitio web o landing page' },
+  { value: 'Tienda en linea', label: 'Tienda en línea (e-commerce)' },
+  { value: 'Internet de las cosas', label: 'Internet de las cosas (IoT)' },
+  { value: 'Sistema de gestion', label: 'Sistema de gestión (CRM/ERP)' },
+  { value: 'Otro', label: 'Otro / Aún no sé' },
 ];
 
 /** Budget options for the dropdown */
 const budgetOptions: CustomSelectOption[] = [
+  { value: 'Menos de $1,000', label: 'Menos de $1,000' },
   { value: '$1,000-$5,000', label: '$1,000 - $5,000' },
   { value: '$5,000-$10,000', label: '$5,000 - $10,000' },
   { value: '$10,000+', label: '$10,000+' },
-  { value: 'Por definir', label: 'Por definir' },
+  { value: 'Aun no tengo definido', label: 'Aún no tengo definido' },
 ];
 
 /** Initial empty form state */
@@ -366,7 +370,7 @@ function ContactForm({ onSuccess, className = '', showCard = true }: ContactForm
                     Enviando...
                   </>
                 ) : (
-                  'Enviar mensaje'
+                  'Solicitar consulta'
                 )}
               </Button>
             </div>

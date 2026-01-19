@@ -40,13 +40,13 @@ function ContactSection() {
                 id="contact-heading"
                 className="mt-3 text-2xl font-extrabold tracking-tight text-white sm:text-3xl"
               >
-                Hablemos sobre tu proyecto
+                Cuéntanos qué necesitas.
               </h2>
 
               {/* Description */}
               <p className="mt-3 max-w-[38ch] text-sm leading-relaxed text-white/70 sm:text-base">
-                Cuéntanos sobre tu negocio y tus objetivos. Te contactaremos para explorar cómo
-                podemos ayudarte.
+                Completa el formulario y te responderemos en menos de 24 horas con ideas claras
+                para tu proyecto.
               </p>
             </div>
           </div>
