@@ -1,4 +1,33 @@
-# React + TypeScript + Vite
+# GravityLabs Landing Page
+
+Landing page for GravityLabs — software, automation, and AI solutions for SMBs.
+
+## Getting Started
+
+```bash
+npm install
+npm run dev
+```
+
+## Environment Variables
+
+Copy `.env.example` to `.env` and update the values:
+
+```bash
+cp .env.example .env
+```
+
+| Variable | Description | Example |
+|----------|-------------|---------|
+| `VITE_SITE_URL` | Production site URL for canonical links and social sharing | `https://gravitylabs.tech` |
+
+## Social Sharing Image
+
+Add an Open Graph image at `public/og-image.png` (1200x630 pixels) for social media previews.
+
+---
+
+## Original Vite Template Docs
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
