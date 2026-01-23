@@ -7,6 +7,7 @@ import TeamSection from './components/TeamSection';
 import ProjectsSection from './components/ProjectsSection/ProjectsSection';
 import { ContactSection } from './components/ContactSection';
 import { ContactModal } from './components/ContactModal';
+import { Footer } from './components/Footer';
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -23,6 +24,7 @@ function App() {
       <TeamSection />
       <ProjectsSection />
       <ContactSection />
+      <Footer />
       <ContactModal isOpen={isModalOpen} onClose={closeModal} />
     </>
   );
