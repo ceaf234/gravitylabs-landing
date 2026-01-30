@@ -3,7 +3,7 @@
 /* Custom design tokens for GravityLabs */
 @theme {
   /* Colors - All optimized for WCAG 2.1 AA contrast compliance */
-  --color-background: #1a1a1a;
+  --color-background: #0a0a0a;
   --color-background-elevated: #242424;
   --color-accent-gold: #d4a574; /* Warm gold/amber accent color */
   --color-accent-gold-hover: #e0b88a;
@@ -133,10 +133,10 @@
 .dot-wave {
   position: relative;
   /* CSS custom properties for brightness control (set via React component) */
-  --dot-wave-opacity: 0.39; /* Default: 0.30 * 1.3 = ~30% brighter */
-  --dot-wave-brightness: 1.5; /* Default: 1.15 * 1.3 = ~30% brighter */
+  --dot-wave-opacity: 0.30;
+  --dot-wave-brightness: 3.5;
   /* Base dot pattern layer - subtle static dots */
-  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.10) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(201, 149, 108, 0.10) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
@@ -146,7 +146,7 @@
   position: absolute;
   inset: 0;
   /* Brighter dot pattern for the wave - uses CSS custom property for dynamic control */
-  background-image: radial-gradient(circle, rgba(255, 255, 255, var(--dot-wave-opacity)) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(201, 149, 108, var(--dot-wave-opacity)) 1px, transparent 1px);
   background-size: 24px 24px;
   /* Diagonal gradient mask that creates the wave band effect (wider band for more visibility) */
   mask-image: linear-gradient(
