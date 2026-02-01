@@ -52,7 +52,11 @@ describe('Header', () => {
     await user.tab();
     expect(screen.getByRole('link', { name: /gravitylabs/i })).toHaveFocus();
 
-    // Third tab should focus first nav link
+    // Third tab should focus Products dropdown trigger
+    await user.tab();
+    expect(screen.getByRole('button', { name: /productos/i })).toHaveFocus();
+
+    // Fourth tab should focus first nav link
     await user.tab();
     expect(screen.getByRole('link', { name: /servicios/i })).toHaveFocus();
   });
