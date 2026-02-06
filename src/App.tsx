@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Header from './components/Header';
+import { ConstructionBanner } from './components/ConstructionBanner';
 import HeroSection from './components/HeroSection';
 import ServicesSection from './components/ServicesSection';
 import SloganSection from './components/SloganSection';
@@ -17,6 +18,7 @@ function App() {
 
   return (
     <>
+      <ConstructionBanner />
       <Header />
       <HeroSection onOpenModal={openModal} />
       <ServicesSection />

@@ -127,7 +127,7 @@ function Header() {
 
       <header
         role="banner"
-        className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ease-out ${
+        className={`fixed left-0 right-0 top-8 z-50 transition-all duration-300 ease-out ${
           isCompact
             ? 'bg-black/55 backdrop-blur-md border-b border-white/10'
             : 'dot-wave bg-background'

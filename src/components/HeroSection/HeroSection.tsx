@@ -17,7 +17,7 @@ function HeroSection({ onOpenModal }: HeroSectionProps) {
       data-section="hero"
       role="main"
       aria-labelledby="hero-headline"
-      className="flex min-h-[85vh] flex-col items-start justify-center overflow-hidden bg-background pt-16 pb-6 lg:min-h-[75vh] lg:pt-20 lg:pb-10"
+      className="flex min-h-[85vh] flex-col items-start justify-center overflow-hidden bg-background pt-24 pb-6 lg:min-h-[75vh] lg:pt-28 lg:pb-10"
       brightnessBoost={1.3}
     >
       {/* Hero Content - Uses shared Container for alignment with navbar */}
