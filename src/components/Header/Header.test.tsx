@@ -13,11 +13,10 @@ describe('Header', () => {
 
   it('renders all navigation links', () => {
     render(<Header />);
-    expect(screen.getByRole('link', { name: /servicios/i })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /nosotros/i })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /proyectos/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /qué hacemos/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /quiénes somos/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /nuestro trabajo/i })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /contacto/i })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /hablemos/i })).toBeInTheDocument();
   });
 
   it('toggles mobile menu when hamburger button is clicked', async () => {
@@ -52,12 +51,8 @@ describe('Header', () => {
     await user.tab();
     expect(screen.getByRole('link', { name: /gravitylabs/i })).toHaveFocus();
 
-    // Third tab should focus Products dropdown trigger
+    // Third tab should focus first nav link
     await user.tab();
-    expect(screen.getByRole('button', { name: /productos/i })).toHaveFocus();
-
-    // Fourth tab should focus first nav link
-    await user.tab();
-    expect(screen.getByRole('link', { name: /servicios/i })).toHaveFocus();
+    expect(screen.getByRole('link', { name: /qué hacemos/i })).toHaveFocus();
   });
 });

@@ -1,6 +1,6 @@
 import type { CSSProperties } from 'react';
 import { useState, useEffect, useCallback, useRef } from 'react';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Container } from '../layout';
 import GravityLabsLogo from './GravityLabsLogo_SVG.svg';
 
@@ -9,51 +9,18 @@ interface NavLink {
   href: string;
 }
 
-interface ProductLink {
-  label: string;
-  href: string;
-  description: string;
-}
-
 const navLinks: NavLink[] = [
   { label: 'Qué hacemos', href: '#servicios' },
   { label: 'Quiénes somos', href: '#nosotros' },
   { label: 'Nuestro trabajo', href: '#proyectos' },
 ];
 
-const productLinks: ProductLink[] = [
-  {
-    label: 'Gravity Chat',
-    href: 'https://chat.gravitylabs.tech',
-    description: 'Mensajería inteligente',
-  },
-  {
-    label: 'Gravity CRM',
-    href: 'https://crm.gravitylabs.tech',
-    description: 'Gestión de clientes',
-  },
-  {
-    label: 'Gravity ERP',
-    href: 'https://erp.gravitylabs.tech',
-    description: 'Planificación empresarial',
-  },
-  {
-    label: 'Gravity Appointments',
-    href: 'https://appointments.gravitylabs.tech',
-    description: 'Agenda de citas',
-  },
-];
-
 function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isCompact, setIsCompact] = useState(false);
-  const [isProductsOpen, setIsProductsOpen] = useState(false);
-  const [isMobileProductsOpen, setIsMobileProductsOpen] = useState(false);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const firstMenuLinkRef = useRef<HTMLAnchorElement>(null);
-  const dropdownRef = useRef<HTMLDivElement>(null);
-  const dropdownTriggerRef = useRef<HTMLButtonElement>(null);
 
   const openMenu = () => {
     setIsMobileMenuOpen(true);
@@ -61,7 +28,6 @@ function Header() {
 
   const closeMenu = () => {
     setIsMobileMenuOpen(false);
-    setIsMobileProductsOpen(false);
     // Return focus to the menu button when closing
     menuButtonRef.current?.focus();
   };
@@ -77,20 +43,16 @@ function Header() {
     }
   }, [isMobileMenuOpen]);
 
-  // Close menu or dropdown on Escape key
+  // Close menu on Escape key
   const handleKeyDown = useCallback(
     (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
-        if (isProductsOpen) {
-          setIsProductsOpen(false);
-          dropdownTriggerRef.current?.focus();
-        }
         if (isMobileMenuOpen) {
           closeMenu();
         }
       }
     },
-    [isMobileMenuOpen, isProductsOpen]
+    [isMobileMenuOpen]
   );
 
   useEffect(() => {
@@ -135,20 +97,6 @@ function Header() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  // Close desktop dropdown on outside click
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setIsProductsOpen(false);
-      }
-    };
-
-    if (isProductsOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-    }
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [isProductsOpen]);
 
   // Trap focus within mobile menu
   const handleMenuKeyDown = (event: React.KeyboardEvent) => {
@@ -222,58 +170,6 @@ function Header() {
             }`}
             aria-label="Menu principal"
           >
-            {/* Products dropdown */}
-            <div
-              ref={dropdownRef}
-              className="relative"
-              onMouseLeave={() => setIsProductsOpen(false)}
-            >
-              <button
-                ref={dropdownTriggerRef}
-                type="button"
-                onClick={() => setIsProductsOpen((prev) => !prev)}
-                onMouseEnter={() => setIsProductsOpen(true)}
-                aria-expanded={isProductsOpen}
-                aria-haspopup="menu"
-                aria-controls="products-dropdown"
-                className={`inline-flex items-center gap-1 font-medium text-text-muted transition-all duration-300 ease-out hover:text-text-primary focus-visible:text-text-primary focus-visible:rounded-sm ${
-                  isCompact ? 'text-xs 2xl:text-sm' : 'text-nav'
-                }`}
-              >
-                Productos
-                <ChevronDown
-                  className={`h-4 w-4 transition-transform duration-300 ease-out ${
-                    isProductsOpen ? 'rotate-180' : ''
-                  }`}
-                  aria-hidden="true"
-                />
-              </button>
-
-              {isProductsOpen && (
-                <div
-                  id="products-dropdown"
-                  role="menu"
-                  aria-label="Productos de GravityLabs"
-                  className="absolute left-1/2 top-full z-50 mt-3 w-64 -translate-x-1/2 rounded-xl border border-white/10 bg-white/5 p-2 shadow-lg shadow-black/20 backdrop-blur-xl"
-                >
-                  {productLinks.map((product) => (
-                    <a
-                      key={product.href}
-                      href={product.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      role="menuitem"
-                      className="flex flex-col gap-0.5 rounded-lg px-3 py-2.5 transition-colors duration-300 ease-out hover:bg-white/10 focus-visible:bg-white/10 focus-visible:outline-none"
-                      onClick={() => setIsProductsOpen(false)}
-                    >
-                      <span className="text-sm font-medium text-text-primary">{product.label}</span>
-                      <span className="text-xs text-text-muted">{product.description}</span>
-                    </a>
-                  ))}
-                </div>
-              )}
-            </div>
-
             {navLinks.map((link) => (
               <a
                 key={link.href}
@@ -358,47 +254,6 @@ function Header() {
                   className="flex flex-1 flex-col gap-2 px-4 pt-4"
                   aria-label="Menu de navegacion movil"
                 >
-                  {/* Products accordion */}
-                  <div>
-                    <button
-                      type="button"
-                      onClick={() => setIsMobileProductsOpen((prev) => !prev)}
-                      aria-expanded={isMobileProductsOpen}
-                      aria-controls="mobile-products-list"
-                      className="flex w-full items-center justify-between rounded-lg px-4 py-3 text-lg font-medium text-text-muted transition-colors hover:bg-white/5 hover:text-text-primary focus-visible:bg-white/5 focus-visible:text-text-primary"
-                    >
-                      Productos
-                      <ChevronDown
-                        className={`h-5 w-5 transition-transform duration-300 ease-out ${
-                          isMobileProductsOpen ? 'rotate-180' : ''
-                        }`}
-                        aria-hidden="true"
-                      />
-                    </button>
-
-                    {isMobileProductsOpen && (
-                      <div
-                        id="mobile-products-list"
-                        role="group"
-                        aria-label="Productos"
-                        className="flex flex-col gap-1 pb-2 pl-4"
-                      >
-                        {productLinks.map((product) => (
-                          <a
-                            key={product.href}
-                            href={product.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="rounded-lg px-4 py-2.5 text-base font-medium text-text-muted transition-colors hover:bg-white/5 hover:text-text-primary focus-visible:bg-white/5 focus-visible:text-text-primary"
-                            onClick={closeMenu}
-                          >
-                            {product.label}
-                          </a>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-
                   {navLinks.map((link, index) => (
                     <a
                       key={link.href}
